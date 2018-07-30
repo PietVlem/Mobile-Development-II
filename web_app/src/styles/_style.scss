@@ -1,0 +1,514 @@
+/* =============================================================================
+   IMPORTS
+   ========================================================================== */
+
+// CSS Reset
+@import "inc/reset";
+
+// Core
+@import "inc/vars";
+@import "inc/mixins";
+
+// Styled patterns and elements
+@import "inc/grid";
+@import "inc/type";
+@import "inc/tables";
+@import "inc/forms";
+
+// Plugins
+@import "plugins/validation-engine";
+
+// react-notifications
+@import "plugins/react-notifications";
+
+/* =============================================================================
+   BODY
+   ========================================================================== */
+
+body {
+    background-color: $bgColor;
+}
+
+/* =============================================================================
+   HEADER
+   ========================================================================== */
+
+.page-header {
+    @include clearfix;
+
+    background-image: linear-gradient(to bottom, $accentSecondary, darken($accentSecondary, 10%));
+
+    img {
+        width: 30px;
+        float: left;
+        cursor: pointer;
+        margin: 10px;
+    }
+
+    .main-nav {
+        @include clearfix;
+
+        width: calc(100% - 98px);
+        float: left;
+        text-align: center;
+
+        li {
+            @include default-font;
+
+            font-size: 16px;
+            font-weight: 300;
+            padding: 13px 30px;
+            color: $white;
+            text-transform: uppercase;
+            list-style-type: none;
+            display: inline-block;
+            cursor: pointer;
+        }
+    }
+
+    .user-icon {
+        font-size: 16px;
+        padding: 17px;
+        color: white;
+        float: left;
+    }
+}
+
+/* =============================================================================
+   MAIN
+   ========================================================================== */
+
+.page-container {
+    padding: 40px;
+    max-width: 1600px;
+    margin: auto;
+}
+
+/* =============================================================================
+   FOOTER
+   ========================================================================== */
+
+.page-footer {}
+
+
+/* =============================================================================
+   HELPERS
+   ========================================================================== */
+
+.equal-h{
+    display: flex;
+    align-items: center;
+}
+
+/* =============================================================================
+   COMPONENTS
+   ========================================================================== */
+
+/* login */
+.login-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.login {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+}
+
+.login__social {
+    @include clearfix;
+
+    div {
+        width: 50% !important;
+        float: left;
+
+        button {
+            box-sizing: border-box;
+            width: 100%;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.login-label-social {
+    @include default-font;
+
+    font-variant: small-caps;
+    text-align: center;
+    width: 100%;
+}
+
+/* searchbar */
+.searchbar {
+    background: #fff;
+    color: #a3a3a3;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+    border: 0 !important;
+    outline: 0;
+    padding: 22px 18px !important;
+}
+
+// search result
+.search-result {
+    margin-top: 40px;
+}
+
+// Margins
+.m-bot-20 {
+    @include clearfix;
+
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* =============================================================================
+   PAGES
+   ========================================================================== */
+
+// Lol
+.search-result__lol {}
+
+.search-result__lol__name{
+    @include clearfix;
+    background-color: white;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+    margin: auto;
+    width: auto;
+    margin-bottom: 30px;
+    h1,h2,p {
+        text-transform: capitalize;
+        margin-bottom: 0;
+        padding: 10px 30px;
+    }
+    H1{
+        font-weight: bold;
+    }
+    p{
+        font-size: 14px;
+    }
+    div{
+        float: left;
+        img{
+            height: 100%;
+            max-height: 150px;
+        }
+    }
+}
+
+.css-1o3m8w0 {
+    position: absolute;
+    top: 120px;
+    left: 50%;
+}
+
+.matchcontainer{
+    p{
+        font-weight: 300;
+    }
+}
+
+.game-details {
+    margin-bottom: 15px;
+
+    .grid__item{
+        
+    }
+
+    p{
+        margin-bottom: 0;
+    }
+}
+
+.win {
+    background-color: $greenWinLight;
+    border: 1px solid $greenWin;
+}
+
+.fail {
+    background-color: $redLoosingLight;
+    border: 1px solid $redLoosing;
+}
+
+.defeat-text{
+    font-weight: bold;
+    color: $redLoosing;
+}
+
+.victory-text{
+    font-weight: bold;
+    color: $greenWin;
+}
+
+.gd{
+    padding: 15px;
+}
+
+.gd--primary-data{
+    
+}
+
+.gd--secondary-data{
+
+}
+
+.gd--tertiary-data{
+
+}
+
+.lowercase{
+    text-transform: lowercase;
+}
+
+
+
+// Blog
+.grid--blog {
+    display: flex;
+    flex-flow: column wrap; /* Shorthand – you could use ‘flex-direction: column’ and ‘flex-wrap: wrap’ instead */
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    @media #{$large} {
+        max-height: 2000px;
+    }
+
+    @media #{$huge} {
+        max-height: 1500px;
+    }
+}
+
+.blog-post {
+    margin-bottom: 30px;
+    overflow: hidden;
+    position: relative;
+    transform: translateY(0px);
+    transition: $transitionDefault;
+
+    .blog-post__image {
+        img {
+            width: 100%;
+        }
+    }
+
+    .blog-post__info {
+        z-index: 5;
+        background: $white;
+        padding: 20px;
+    }
+
+    &:hover {
+        cursor: pointer;
+        transform: translateY(-10px);
+    }
+}
+
+// Post-details
+.post-details {
+    max-width: 960px;
+    margin: auto;
+}
+
+.prologue {
+    font-weight: 600;
+}
+
+// Create post
+.post-creation-wrapper {
+    max-width: 960px;
+    margin: auto;
+    background-color: $white;
+}
+
+.dropzone {
+    width: 100%;
+    border: 1px dotted black;
+    padding: 20px;
+    text-align: center;
+
+    i {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    span {
+        font-family: raleway ,Helvetica, Arial, Verdana, sans-serif;
+    }
+}
+
+.dropzone__filename {
+    margin-top: 20px;
+
+    span {
+        font-family: raleway ,Helvetica, Arial, Verdana, sans-serif;
+    }
+}
+
+// Back-End
+// SideNav
+.backoffice__sidenav {
+    width: 350px;
+    min-height: 100vh;
+    background-color: $BE_Black;
+    position: fixed;
+
+    img {
+        width: 100px;
+        display: block;
+        margin: 20px auto;
+    }
+
+    p {
+        text-align: left;
+        font-size: 14px;
+        padding: 10px 20px;
+        color: white;
+        font-weight: bold;
+        margin-bottom: 0 !important;
+        cursor: pointer;
+
+        i {
+            margin-right: 20px;
+        }
+    }
+
+    p:hover {
+        color: $BE_Blue;
+    }
+
+    .sidenav__section {
+        //margin-bottom: 1em;
+   
+    }
+
+    .sidenav__title {
+        color: $BE_Grey;
+        padding: 10px 20px;
+        text-transform: uppercase;
+        border-top: 1px solid $BE_Grey;
+        border-bottom: 1px solid $BE_Grey;
+        cursor: default;
+    }
+
+    .sidenav__title:hover {
+        color: $BE_Grey;
+    }
+
+    .active_item {
+        color: $BE_Blue;
+    }
+}
+
+// Body
+.backoffice__containter {
+    width: 100%;
+    display: inline-block;
+    min-height: 100vh;
+
+    .backoffice__content {
+        width: calc(100% - 350px);
+        display: table;
+        margin-left: 350px;
+    }
+
+    .backoffice__header {
+        width: 100%;
+        height: 60px;
+        background-color: white;
+
+        button {
+            border: none;
+            float: right;
+            height: 40px;
+            background-color: $BE_Red;
+            color: white;
+            margin: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 0.2px;
+            text-transform: uppercase;
+            padding: 0px 40px;
+            border-radius: 3px;
+            font-family: raleway;
+            cursor: pointer;
+
+            svg {
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .backoffice__subtitle {
+        width: 100%;
+        height: 60px;
+        padding: 20px;
+        height: 50px;
+
+        h1 {
+            font-size: 24px;
+            font-weight: 300px;
+            text-transform: capitalize;
+        }
+    }
+
+    .content__container {
+        width: calc(100% - 40px);
+        margin: 20px;
+        float: right;
+        min-height: calc(100vh - 120px);
+        background-color: white;
+
+        > div {
+            padding: 20px;
+        }
+
+        * {
+            text-align: left;
+        }
+    }
+
+    .table--reservations {
+        width: auto;
+        margin: auto;
+
+        td {
+            font-family: raleway;
+        }
+
+        tr:first-child td {
+            font-weight: bold;
+        }
+    }
+
+    .svgLink {
+        text-decoration: none;
+        color: black;
+        text-align: center;
+        width: 20px;
+
+        svg {
+            width: 25px;
+        }
+    }
+
+    .svgLink--accept {
+        color: $BE_Blue;
+    }
+
+    .svgLink--delete {
+        color: $BE_Red;
+        font-size: 22px;
+    }
+}
+
+.actions-cel {
+    > div {
+        float: left;
+    }
+}
+
+.bo-contentblock {
+    margin-bottom: 50px;
+}

@@ -1,0 +1,21 @@
+{
+    "data": [
+        {
+            "mapName": "The Twisted Treeline",
+            "image":"map10.png",
+            "mapId": 10
+        },
+        {
+            "mapName": "Summoner's Rift",
+            "image":"map11.png",
+            "mapId": 11
+        },
+        {
+            "mapName": "Howling Abyss",
+            "image": "map12.png",
+            "mapId": 12
+        }
+    ],
+    "version": "8.14.1",
+    "type": "map"
+}

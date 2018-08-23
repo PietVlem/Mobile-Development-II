@@ -59,6 +59,7 @@ class BECreatePost extends Component {
         data.append('body', this.state.postbody);
         data.append('postImage', this.state.postImage[0]);
         data.append('_category', this.state.postCategory);
+        data.append('_user', '5b51e296e863f10eb22e6635');
 
         this.props.createPost(data);
 

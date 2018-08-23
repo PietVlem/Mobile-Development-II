@@ -60,12 +60,12 @@ class LoginComponent extends Component {
                             onClick={()=> this.responseLocal()}
                             >Login</button>
                             <button 
-                            className="button button--full-width"
+                            className="button button--full-width button--last"
                             onClick={()=> this.responseLocalSignUp()}
                             >Sign Up</button>
                         </form>
                     </div>
-                    <span className="login-label-social">or log in with:</span>
+                    <p className="login-label-social">or log in with:</p>
                     <div className="login__social">
                         <div>
                             <FacebookLogin

@@ -63,3 +63,18 @@ exports.secret = function (req, res, next) {
   console.log('I managed to get here!');
   res.json({ secret: "resource" });
 }
+
+/*
+Get users
+*/
+exports.get_users = function (req, res, next) {
+  const query = User.find();
+  query.sort({ created_at: -1 });
+  query.exec((err, blogs) => {
+      if (err) return next(err);
+      if (blogs == null) {
+          return errorHandler.handleAPIError(`not found!`, next);
+      }
+      return res.json(blogs);
+  });
+}

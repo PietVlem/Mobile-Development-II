@@ -3,7 +3,7 @@ var request = require('request');
 var axios = require('axios');
 const leagueChamp = require('../models/leagueChamp');
 
-const api_key = 'RGAPI-bdafacf8-4b1c-4b26-ad78-b0470106ac70';
+const api_key = 'RGAPI-820aa7e9-03ec-4c0a-8569-dea62e790b0b';
 
 
 // local champ/map json

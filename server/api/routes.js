@@ -46,6 +46,9 @@ router.delete('/posts/:postId', postController.delete_post);
 // categories
 router.get('/categories', CategoryController.get_categories);
 
+//users
+router.get('/users', authController.get_users);
+
 //auth routes
 router.use('/auth', authRouter);
 authRouter.post('/signup', validateBody(schemas.authSchema), authController.user_auth_local_signUp);

@@ -4,6 +4,7 @@ import 'react-notifications/lib/notifications.css';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions/postActions';
+import axios from 'axios';
 
 
 // Components
@@ -11,27 +12,42 @@ import DeleteLink from '../components/DeleteLink';
 
 class BEPosts extends Component {
 
-    componentDidMount() {
-        this.props.fetchPosts();
+    constructor(props) {
+        super(props);
+        this.state = {
+            users: ''
+        }
     }
 
-    reFetchData(data){
+    componentDidMount() {
+        this.props.fetchPosts();
+        axios.get('http://127.0.0.1:8080/api/users').then(Response => {
+            this.setState({ users: Response.data });
+        })
+
+    }
+
+    reFetchData(data) {
         NotificationManager.error('Post Deleted');
     }
 
     render() {
         let tableRows;
-        tableRows = this.props.posts.map(post => {
-            return (
-                <tr key={post._id}>
-                    <td>{post.title}</td>
-                    <td>author</td>
-                    <td>
-                        <DeleteLink reFetchData={this.reFetchData.bind(this)} data={post} />
-                    </td>
-                </tr>
-            )
-        })
+        if (this.state.users != '') {
+            tableRows = this.props.posts.map(post => {
+                const result = this.state.users.find(user => user._id === post._user);
+                return (
+                    <tr key={post._id}>
+                        <td>{post.title}</td>
+                        <td>{result._id}</td>
+                        <td>
+                            <DeleteLink reFetchData={this.reFetchData.bind(this)} data={post} />
+                        </td>
+                    </tr>
+                )
+            })
+        }
+
 
         return (
             <div>

@@ -39,6 +39,7 @@ exports.create_post = function (req, res, next) {
   if (!req.body || !req.body.title || !req.body.synopsis || !req.body.body || !req.body._category) {
       return errorHandler.handleAPIError(400, `Post must have a title, synopsis, body and _category`, next);
   }
+  console.log(req.body);
   const newPost = new Post({
       title: req.body.title,
       synopsis: req.body.synopsis,
